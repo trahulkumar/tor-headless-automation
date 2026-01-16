@@ -27,7 +27,7 @@ if %ERRORLEVEL% NEQ 0 (
 
 echo Starting Docker in SETUP mode (no automation)...
 REM Override the entrypoint to just keep the container alive with VNC
-docker-compose -f docker/docker-compose.yml run -d --name tor_setup --service-ports tor-automation tail -f /dev/null
+docker-compose -f docker/docker-compose.yml run -d --build --name tor_setup --service-ports tor-automation tail -f /dev/null
 
 if %ERRORLEVEL% NEQ 0 (
     echo.

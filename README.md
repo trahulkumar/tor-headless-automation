@@ -114,8 +114,9 @@ If you prefer running it directly on your desktop:
 *   **Fix**: We added `.dockerignore` to exclude `tor_profile` from the build. Ensure `.dockerignore` exists.
 
 ### "Run as root" Error
-*   **Fix**: Already patched in `Dockerfile`. We modify the Tor Browser script during the build to allow root execution:
-    `sed -i 's/id -u" -eq 0/id -u" -eq 1/g' ...`
+*   **Fix**: We have updated the `Dockerfile` to run as a non-root user (`toruser`, UID 1000).
+    *   **Note**: If you see permission errors or Tor Browser fails to launch after this update, it is likely because your `tor_profile` folder was created by the previous "root" container.
+    *   **Solution**: **Delete the `tor_profile` folder completely** and run `.\docker\run_docker_setup.bat` again to create a clean profile with correct permissions.
 
 ### Settings Not Saving
 *   **Fix**: Ensure your `docker-compose.yml` mounts the PARENT directory:
