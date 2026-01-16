@@ -1,0 +1,19 @@
+# Multi-URL Example Configuration
+# 
+# This example shows how to configure multiple URLs for batch processing.
+# Simply copy URLs from this file to your .env TARGET_URLS variable.
+
+# Example with 3 Zenodo URLs (replace with your actual URLs):
+# TARGET_URLS=https://doi.org/10.5281/zenodo.17148962,https://doi.org/10.5281/zenodo.12345678,https://doi.org/10.5281/zenodo.98765432
+
+# You can format it on multiple lines for readability (remove line breaks when adding to .env):
+# TARGET_URLS=https://doi.org/10.5281/zenodo.17148962,\
+#             https://doi.org/10.5281/zenodo.12345678,\
+#             https://doi.org/10.5281/zenodo.98765432
+
+# Tips:
+# - Separate URLs with commas (no spaces recommended)
+# - The script will process them in order
+# - Each URL will be opened, Preview clicked, Download clicked
+# - Progress and summary statistics will be displayed
+# - Failed URLs won't stop the processing of remaining URLs

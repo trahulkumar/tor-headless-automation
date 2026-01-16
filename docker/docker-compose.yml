@@ -1,0 +1,20 @@
+services:
+  tor-automation:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: tor_bg_automation
+    volumes:
+      - ../downloads_docker:/app/downloads
+      - ../downloads_docker:/app/tor-browser-bundle/Browser/Downloads
+      - ../tor_profile:/app/tor-browser-bundle/Browser/TorBrowser/Data/Browser
+      - ../.env:/app/.env
+    # VNC port (optional, for viewing)
+    ports:
+      - "5900:5900"
+      - "6080:6080"
+    restart: unless-stopped
+    # Required for some GUI libs in Docker
+    shm_size: '2gb'
+    environment:
+      - PYTHONUNBUFFERED=1

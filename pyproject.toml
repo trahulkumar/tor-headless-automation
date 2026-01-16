@@ -1,0 +1,25 @@
+[project]
+name = "tor-browser-automation"
+version = "1.0.0"
+description = "Automation scripts for Tor Browser to download files from Zenodo"
+requires-python = ">=3.10"
+dependencies = [
+    "pyautogui>=0.9.54",
+    "python-dotenv>=1.0.0",
+    "psutil>=5.9.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+tor-automate = "tor_browser_automation.main:main"
+tor-repeat = "tor_browser_automation.repeater:run_repeater"
+tor-automate-docker = "tor_browser_automation.docker_main:main"
+
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0.0",
+]

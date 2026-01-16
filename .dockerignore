@@ -1,0 +1,16 @@
+# Exclude virtual environments
+.venv/
+venv/
+__pycache__/
+
+# Exclude downloads and profiles (handled by volumes)
+downloads_docker/
+tor_profile/
+downloads/
+
+# Exclude git metadata
+.git/
+.gitignore
+
+# Exclude environment files (optional, but good practice if secrets)
+.env
