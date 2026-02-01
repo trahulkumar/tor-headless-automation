@@ -46,6 +46,14 @@ REM Wait for the container to finish or user to interrupt
 docker logs -f tor_bg_automation
 
 echo.
+
 echo Stopping automation and cleaning up...
 docker-compose -f docker/docker-compose.yml down
+
+echo.
+echo Shutting down Docker Desktop to save resources...
+taskkill /IM "Docker Desktop.exe" /F >nul 2>&1
+taskkill /IM "com.docker.backend.exe" /F >nul 2>&1
+taskkill /IM "dockerd.exe" /F >nul 2>&1
+echo Docker Desktop has been shut down.
 echo Done.

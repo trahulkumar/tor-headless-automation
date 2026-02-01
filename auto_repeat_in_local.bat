@@ -28,6 +28,12 @@ echo.
 echo Running REPEATER automation...
 uv run tor-repeat
 
+
+echo.
+echo Cleaning up leftover processes...
+taskkill /IM "tor.exe" /F >nul 2>&1
+echo Cleanup complete.
+
 echo.
 echo ============================================================
 echo Script completed!
